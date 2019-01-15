@@ -14,26 +14,7 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
-	<filter>
-		<filter-name>myFilter2</filter-name>
-		<filter-class>com.bit.myapp.utils.MyFilter2</filter-class>
-		<init-param>
-			<param-name>myparam</param-name>
-			<param-value>myvalue</param-value>
-		</init-param>
-	</filter>
-	<filter>
-		<filter-name>myFilter1</filter-name>
-		<filter-class>com.bit.myapp.utils.MyFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>myFilter1</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>myFilter2</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+	
 
 	<!-- Processes application requests -->
 	<servlet>

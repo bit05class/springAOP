@@ -4,5 +4,28 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	<bean id="javaDao" class="com.bit.myapp.model.JavaDaoImpl"></bean>
+	
+	<bean id="myAdvice" class="com.bit.myapp.myaop.MyAdvice"></bean>
+	
+	<bean id="myProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="javaDao"></property>
+		<property name="interceptorNames">
+			<list>
+				<idref bean="myAdvice"/>
+			</list>
+		</property>
+	</bean> 
 </beans>
+
+
+
+
+
+
+
+
+
+
+
+

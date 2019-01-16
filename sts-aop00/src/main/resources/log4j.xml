@@ -17,6 +17,12 @@
 	<logger name="com.bit.myapp.utils">
 		<level value="debug" />
 	</logger>
+	<logger name="com.bit.myapp.model">
+		<level value="debug" />
+	</logger>
+	<logger name="com.bit.myapp.myaop">
+		<level value="debug" />
+	</logger>
 	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">

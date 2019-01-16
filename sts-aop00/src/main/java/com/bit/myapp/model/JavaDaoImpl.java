@@ -14,7 +14,8 @@ public class JavaDaoImpl implements JavaDao {
 	}
 
 	@Override
-	public void func02() {
+	public String func02() {
 		log.debug("process2 run...");
+		return "test ok";
 	}
 }

@@ -25,9 +25,10 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	
 	<context:component-scan base-package="com.bit.myapp" />
 	<aop:aspectj-autoproxy  />
-	<!-- <beans:bean id="myAdvice2" class="com.bit.myapp.myaop.MyAdvice2"></beans:bean> -->
+	<beans:bean id="myAdvice2" class="com.bit.myapp.myaop.MyAdvice2"></beans:bean>
 	<!-- 
 	<interceptors>
 		<interceptor>
@@ -36,4 +37,20 @@
 		</interceptor>
 	</interceptors>
 	 -->
+	<aop:config>
+		<aop:aspect ref="myAdvice2">
+			<aop:before method="beforeMethod" pointcut-ref="allpointcut"/>
+			<aop:after method="afterMethod" pointcut-ref="allpointcut"/>
+			<aop:after-returning method="afterReturningMethod" pointcut-ref="allpointcut" returning="returnString"/>
+			<aop:around method="aroundMethod" pointcut-ref="allpointcut"/>
+			<aop:pointcut id="allpointcut" 
+				expression="execution(* com.bit.myapp.model.*Dao.func01(..))" />
+		</aop:aspect>
+	</aop:config>
 </beans:beans>
+
+
+
+
+
+

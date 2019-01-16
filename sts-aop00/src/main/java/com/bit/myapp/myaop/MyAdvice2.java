@@ -14,26 +14,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-@Component
-@Aspect
+//@Component
+//@Aspect
 public class MyAdvice2{
 	Logger log=LoggerFactory.getLogger(MyAdvice2.class);
 	
-	@Pointcut("execution(* com.bit.myapp.model.*Dao.func01(..))")
+//	@Pointcut("execution(* com.bit.myapp.model.*Dao.func01(..))")
 	public void commonPointcut() { }
 	
-	@Before("commonPointcut()")
+//	@Before("commonPointcut()")
 	public void beforeMethod(JoinPoint jp){ 
 		log.info("beforeMethod() called....."); 
 	}
 	
-	@After("commonPointcut()") 
+//	@After("commonPointcut()") 
 	public void afterMethod(JoinPoint jp) throws Exception { 
 		log.info("afterMethod() called....."); 
 	}
 	
 	// After Returning Advice 입니다. // 이 어드바이스는 반환값을 받을 수 있습니다. 
-	@AfterReturning(pointcut="commonPointcut()", returning="returnString") 
+//	@AfterReturning(pointcut="commonPointcut()", returning="returnString") 
 	public void afterReturningMethod(JoinPoint jp, String returnString) throws Exception { 
 		log.info("afterReturningMethod() called....."); 
 		// 호출된 메소드 반환값 출력 
@@ -41,7 +41,7 @@ public class MyAdvice2{
 	}
 
 	// 예외가 발생했을때 Advice 입니다. 
-	@AfterThrowing(pointcut="commonPointcut()", throwing="exception") 
+//	@AfterThrowing(pointcut="commonPointcut()", throwing="exception") 
 	public void afterThrowingMethod(JoinPoint jp, Exception exception) throws Exception { 
 		log.info("afterThrowingMethod() called....."); 
 		// 발생한 예외의 메세지를 출력합니다. 

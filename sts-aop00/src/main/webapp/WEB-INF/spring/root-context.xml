@@ -11,11 +11,19 @@
 		<property name="target" ref="javaDao"></property>
 		<property name="interceptorNames">
 			<array>
-				<value>myAdvisor</value>
+				<value>pointcutAdvisor</value>
 			</array>
 		</property>
 	</bean>
-	
+	<bean id="pointcutAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+		<property name="mappedNames">
+			<array>
+				<value>func02</value>
+			</array>
+		</property>
+		<property name="advice" ref="myAdvice"></property>
+	</bean>
+	<!-- 
 	<bean id="pointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
 		<property name="mappedName" value="func01"></property>
 	</bean>
@@ -24,7 +32,7 @@
 		<property name="pointcut" ref="pointcut"></property>
 		<property name="advice" ref="myAdvice"></property>
 	</bean>
-	
+	 -->
 	<!-- 
 	<bean id="testAutoProxyCreator"
 	       class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">

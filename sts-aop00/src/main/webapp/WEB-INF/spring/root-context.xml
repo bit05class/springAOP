@@ -15,6 +15,11 @@
 			</array>
 		</property>
 	</bean>
+	<bean id="pointcutAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="pattern" value=".*Dao.*01"></property>
+		<property name="advice" ref="myAdvice"></property>
+	</bean>
+	<!-- 
 	<bean id="pointcutAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
 		<property name="mappedNames">
 			<array>
@@ -23,7 +28,6 @@
 		</property>
 		<property name="advice" ref="myAdvice"></property>
 	</bean>
-	<!-- 
 	<bean id="pointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
 		<property name="mappedName" value="func01"></property>
 	</bean>

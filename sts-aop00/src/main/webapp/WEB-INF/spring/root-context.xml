@@ -7,16 +7,25 @@
 	<bean id="javaDao" class="com.bit.myapp.model.JavaDaoImpl"></bean>
 	
 	<bean id="myAdvice" class="com.bit.myapp.myaop.MyAdvice"></bean>
-	<!-- 
 	<bean id="myProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="target" ref="javaDao"></property>
 		<property name="interceptorNames">
-			<list>
-				<idref bean="myAdvice"/>
-			</list>
+			<array>
+				<value>myAdvisor</value>
+			</array>
 		</property>
 	</bean>
-	 -->
+	
+	<bean id="pointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+		<property name="mappedName" value="func01"></property>
+	</bean>
+	
+	<bean id="myAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="pointcut" ref="pointcut"></property>
+		<property name="advice" ref="myAdvice"></property>
+	</bean>
+	
+	<!-- 
 	<bean id="testAutoProxyCreator"
 	       class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
 	       <property name="beanNames">
@@ -30,6 +39,7 @@
 		       	</list>
 	       </property>
 	</bean>
+	 -->
 </beans>
 
 

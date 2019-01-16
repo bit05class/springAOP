@@ -8,6 +8,11 @@ public class JavaDaoImpl implements JavaDao {
 
 	@Override
 	public void func01() {
-		log.debug("process run...");
+		log.debug("process1 run...");
+	}
+
+	@Override
+	public void func02() {
+		log.debug("process2 run...");
 	}
 }

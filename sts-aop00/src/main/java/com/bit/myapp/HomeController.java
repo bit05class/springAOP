@@ -23,7 +23,7 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	// 
 	@Autowired
-	JavaDao javaDao;
+	JavaDao myProxy;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -35,7 +35,8 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
-		javaDao.func01();
+		myProxy.func01();
+		myProxy.func02();
 		return "home";
 	}
 	

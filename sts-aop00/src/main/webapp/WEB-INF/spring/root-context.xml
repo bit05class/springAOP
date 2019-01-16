@@ -7,7 +7,7 @@
 	<bean id="javaDao" class="com.bit.myapp.model.JavaDaoImpl"></bean>
 	
 	<bean id="myAdvice" class="com.bit.myapp.myaop.MyAdvice"></bean>
-	
+	<!-- 
 	<bean id="myProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
 		<property name="target" ref="javaDao"></property>
 		<property name="interceptorNames">
@@ -15,7 +15,21 @@
 				<idref bean="myAdvice"/>
 			</list>
 		</property>
-	</bean> 
+	</bean>
+	 -->
+	<bean id="testAutoProxyCreator"
+	       class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+	       <property name="beanNames">
+		       	<list>
+		       		<idref bean="javaDao"/>
+		       	</list>
+	       </property>
+	       <property name="interceptorNames">
+		       	<list>
+		       		<idref bean="myAdvice"/>
+		       	</list>
+	       </property>
+	</bean>
 </beans>
 
 

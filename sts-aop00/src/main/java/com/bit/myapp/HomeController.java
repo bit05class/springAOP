@@ -21,9 +21,9 @@ import com.bit.myapp.model.JavaDao;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	// ProxyFactoryBean id
+	// 
 	@Autowired
-	JavaDao myProxy;
+	JavaDao javaDao;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -35,7 +35,7 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
-		myProxy.func01();
+		javaDao.func01();
 		return "home";
 	}
 	

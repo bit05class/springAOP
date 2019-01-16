@@ -2,7 +2,9 @@ package com.bit.myapp.model;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class JavaDaoImpl implements JavaDao {
 	Logger log = LoggerFactory.getLogger(JavaDaoImpl.class);
 
